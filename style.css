@@ -45,3 +45,22 @@ label{
     background: #000;
     height: 30px;
 }
+button {
+  display: block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button:active {
+  background-color: #3e8e41;
+}
