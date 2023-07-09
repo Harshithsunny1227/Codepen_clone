@@ -38,6 +38,34 @@
         output.contentDocument.body.innerHTML = htmlCode+"<style>"+cssCode +"</style>";
         output.contentWindow.eval(jsCode);
     }
+     function saveFiles() {
+        let htmlContent = document.getElementById("html-code").value;
+        let cssContent = document.getElementById("css-code").value;
+        let jsContent = document.getElementById("js-code").value;
+
+        // Create a new Blob object with the file content
+        let blobHtml = new Blob([htmlContent], { type: "text/html;charset=utf-8" });
+        let blobCss = new Blob([cssContent], { type: "text/css;charset=utf-8" });
+        let blobJs = new Blob([jsContent], { type: "text/javascript;charset=utf-8" });
+
+        // Create temporary download links for each file
+        let linkHtml = document.createElement("a");
+        let linkCss = document.createElement("a");
+        let linkJs = document.createElement("a");
+
+        linkHtml.href = URL.createObjectURL(blobHtml);
+        linkCss.href = URL.createObjectURL(blobCss);
+        linkJs.href = URL.createObjectURL(blobJs);
+
+        linkHtml.download = "index.html";
+        linkCss.download = "style.css";
+        linkJs.download = "script.js";
+
+        // Simulate clicking the download links to start the download
+        linkHtml.click();
+        linkCss.click();
+        linkJs.click();
+    }
 
  </script>
 
